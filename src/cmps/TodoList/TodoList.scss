@@ -1,0 +1,42 @@
+.todo-list {
+    .titles {
+        display: flex;
+        justify-content: space-between;
+
+        >* {
+            align-items: flex-start;
+            display: flex;
+            padding: 10px;
+        }
+
+        .desc-wrapper {
+            display: flex;
+            flex: 1;
+        }
+
+        .createdAt-wrapper {
+            width: 300px;
+        }
+
+        .actions-wrapper {
+            width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .todo-list {
+        .titles {
+
+            .desc-wrapper,
+            .createdAt-wrapper,
+            .actions-wrapper {
+                display: none;
+
+            }
+        }
+    }
+}

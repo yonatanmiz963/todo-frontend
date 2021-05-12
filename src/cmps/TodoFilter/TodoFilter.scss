@@ -1,0 +1,41 @@
+.todo-filter {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    input {
+        padding: 0px 10px;
+        border-radius: 5px;
+        height: 40px;
+        width: 250px;
+        outline: none;
+        border: 1px solid gainsboro;
+    }
+
+    select {
+        padding: 0px 10px;
+        border-radius: 5px;
+        height: 40px;
+        outline: none;
+        border: 1px solid gainsboro;
+    }
+
+    .date-wrapper {
+        margin-inline-start: 10px;
+    }
+}
+
+@media screen and(max-width: 720px) {
+    .todo-filter {
+        flex-direction: column;
+        align-items: flex-start;
+
+        >* {
+            margin: 10px 0;
+        }
+
+        .date-wrapper {
+            margin: 0;
+        }
+    }
+}
