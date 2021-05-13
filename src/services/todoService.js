@@ -3,46 +3,22 @@ import { httpService } from './http.service'
 export const todoService = {
     query,
     save,
-    remove, 
-    getEmptyTodo,
-    startTodo,
+    remove,
 }
 
 async function query() {
-    const todos = await httpService.get('todo/')
-    console.log('todos:', todos)
-    return todos
-}
-
-async function startTodo(id) {
-    const todo = await httpService.get(`todo/${id}/start`)
-    return todo
+    return httpService.get('todo/')
 }
 
 async function remove(id) {
-    const removedTodo = await httpService.delete(`todo/${id}`)
-    return removedTodo
+    return httpService.delete(`todo/${id}`)
 }
 
 async function save(todoToSave) {
     if (!todoToSave._id) {
-        const savedTodo = await httpService.post('todo/', todoToSave)
-        return savedTodo
+        return httpService.post('todo/', todoToSave)
     } else {
-        const updatedTodo = await httpService.put(`todo/edit/${todoToSave._id}`, todoToSave)
-        return updatedTodo
-    }
-}
-
-function getEmptyTodo() {
-    return {
-        title: "",
-        description: "",
-        createdAt: null,
-        lastTriedAt: null,
-        triesCount: 0,
-        doneAt: null,
-        importance: 0
+        return httpService.put(`todo/edit/${todoToSave._id}`, todoToSave)
     }
 }
 
